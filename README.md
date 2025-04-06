@@ -20,7 +20,7 @@ Make sure you have [`conda` installed](https://docs.conda.io/projects/conda/en/s
 Clone the repository:
 
 ```bash
-git clone git@github.com:mlexpertio/ml-project-template.git .
+git clone git@github.com:OsvaldoFurtado/machine-learning-project-template.git .
 cd machine-learning-project-template
 ```
 
