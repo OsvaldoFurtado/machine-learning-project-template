@@ -6,7 +6,7 @@ Features:
 
 - [`dvc`](https://dvc.org/) for data versioning and pipeline management (reproducibility)
 - [`FastAPI`](https://fastapi.tiangolo.com/) for serving the model
-- [`uv`](https://docs.astral.sh/uv/) package manager
+- [`conda`](https://docs.conda.io/projects/conda/en/stable/index.html) package and environment manager
 - [`ruff`](https://docs.astral.sh/ruff/) for linting and formatting
 - [`pytest`](https://docs.pytest.org/en/stable/) for testing
 - [`loguru`](https://loguru.readthedocs.io/en/stable/) for logging
@@ -15,44 +15,43 @@ Features:
 
 ## Install
 
-Make sure you have [`uv` installed](https://docs.astral.sh/uv/getting-started/installation/).
+Make sure you have [`conda` installed](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html).
 
 Clone the repository:
 
 ```bash
 git clone git@github.com:mlexpertio/ml-project-template.git .
-cd ml-project-template
+cd machine-learning-project-template
 ```
 
-Install Python:
+Create Python 3.12.8 Virtual Environment using conda:
 
 ```bash
-uv python install 3.12.8
+conda create --name ml_template python=3.12.8
 ```
 
-Create and activate a virtual environment:
+Activate a virtual environment:
 
 ```bash
-uv venv
-source .venv/bin/activate
+conda activate ml_template
 ```
 
 Install dependencies:
 
 ```bash
-uv sync
+pip-sync requirements-dev.txt
 ```
 
 Install package in editable mode:
 
 ```bash
-uv pip install -e .
+pip install -e .
 ```
 
 Install pre-commit hooks:
 
 ```bash
-uv run pre-commit install
+pre-commit install
 ```
 
 ## Reproduce
@@ -62,19 +61,19 @@ The project contains three different stages defined in `dvc.yaml`.
 - Create a dataset from the raw data:
 
 ```bash
-uv run dvc repro build-dataset
+dvc repro build-dataset
 ```
 
 - Train a model using the dataset:
 
 ```bash
-uv run dvc repro train-model
+dvc repro train-model
 ```
 
 - Evaluate the model using the test dataset:
 
 ```bash
-uv run dvc repro evaluate
+dvc repro evaluate
 ```
 
 ## API server
@@ -82,7 +81,7 @@ uv run dvc repro evaluate
 Start the FastAPI server:
 
 ```bash
-uv run python app.py
+python app.py
 ```
 
 Test the API:
@@ -96,7 +95,7 @@ curl -X POST "http://localhost:8000/predict" \
 ## Tests
 
 ```bash
-uv run pytest
+pytest
 ```
 
 ## Docker

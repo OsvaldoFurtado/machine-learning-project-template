@@ -73,7 +73,7 @@ stages:
     outs:
     - path: artefacts/models
       hash: md5
-      md5: 32e48de475b74a600d36339e135666d8.dir
+      md5: 74770eb98dad70f0976dd101194c66a4.dir
       size: 941
       nfiles: 1
   evaluate:
@@ -86,7 +86,7 @@ stages:
       nfiles: 2
     - path: artefacts/models
       hash: md5
-      md5: 32e48de475b74a600d36339e135666d8.dir
+      md5: 74770eb98dad70f0976dd101194c66a4.dir
       size: 941
       nfiles: 1
     - path: bin/evaluate
